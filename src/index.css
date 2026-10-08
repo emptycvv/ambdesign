@@ -1,0 +1,428 @@
+/* ==========================================================================
+   AMB DESIGN - MARCENARIA SOB MEDIDA DE ALTO PADRÃO
+   DESIGN SYSTEM & LUXURY AESTHETICS
+   ========================================================================== */
+
+:root {
+  /* Rich Wood & Warm Dark Palette */
+  --bg-primary: #120D0B;
+  --bg-secondary: #1C1512;
+  --bg-tertiary: #271E19;
+  --bg-surface: rgba(36, 28, 23, 0.7);
+  --bg-surface-hover: rgba(50, 39, 32, 0.85);
+
+  /* Light / Sand / Off-White Palette */
+  --sand-50: #FCFAF7;
+  --sand-100: #F6F1EA;
+  --sand-200: #EAE1D3;
+  --sand-300: #D8CCBA;
+  --sand-800: #2C221B;
+  --sand-900: #1C1512;
+
+  /* Natural Woods & Caramel */
+  --wood-walnut: #3A281E;
+  --wood-cognac: #804A26;
+  --wood-caramel: #B87333;
+  --wood-amber: #CF8B4B;
+  --wood-honey: #E0A96D;
+  --wood-cream: #F3E5D8;
+
+  /* Subtle Gold & Champagne Metallic Accents */
+  --gold-300: #F3E0A3;
+  --gold-400: #E5C378;
+  --gold-500: #C5A059;
+  --gold-600: #9E7D3B;
+  --gold-gradient: linear-gradient(135deg, #F3E0A3 0%, #D4AF37 50%, #A67C1E 100%);
+  --gold-glow: rgba(212, 175, 55, 0.25);
+  --gold-border: rgba(212, 175, 55, 0.28);
+
+  /* Text Colors */
+  --text-primary: #F7F3EE;
+  --text-secondary: #C8BFB5;
+  --text-muted: #8E8277;
+  --text-dark-primary: #1D1612;
+  --text-dark-secondary: #4A3C34;
+  --text-dark-muted: #7A6C63;
+
+  /* Borders & Glass */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-gold: rgba(212, 175, 55, 0.22);
+  --border-dark: rgba(44, 34, 27, 0.12);
+  --glass-bg: rgba(24, 18, 15, 0.75);
+  --glass-blur: blur(16px);
+
+  /* Shadows */
+  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 8px 30px rgba(212, 175, 55, 0.18);
+  --shadow-light-card: 0 10px 35px rgba(58, 40, 30, 0.08);
+
+  /* Typography: Modern Architectural Luxury */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-accent: 'Outfit', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset & Base Setup */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.65;
+  background-color: var(--bg-primary);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Custom Selection */
+::selection {
+  background-color: var(--gold-500);
+  color: #120D0B;
+}
+
+/* Typography Utility Classes */
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.text-gold-gradient {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.text-caramel-gradient {
+  background: linear-gradient(135deg, #F3E5D8 0%, #CF8B4B 60%, #945D33 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Fluid Typography */
+.hero-title {
+  font-size: clamp(2.4rem, 6vw + 0.5rem, 4.8rem);
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4.2vw + 0.2rem, 3.4rem);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.section-subtitle {
+  font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--gold-400);
+  font-family: var(--font-accent);
+}
+
+/* Container */
+.container-custom {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+/* ==========================================================================
+   ORGANIC CURVED SECTION DIVIDERS (MANDATORY PREMIUM EFFECT)
+   ========================================================================== */
+
+.organic-divider-wrapper {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  overflow: hidden;
+  z-index: 10;
+  pointer-events: none;
+  margin-top: -1px;
+  margin-bottom: -1px;
+}
+
+.organic-divider-svg {
+  display: block;
+  width: 100%;
+  height: clamp(60px, 9vw, 150px);
+  min-height: 60px;
+  transform: translateZ(0);
+}
+
+/* Light / Sand Section Styles */
+.section-sand {
+  background-color: var(--sand-100);
+  color: var(--text-dark-primary);
+  position: relative;
+}
+
+.section-sand h2, .section-sand h3, .section-sand h4 {
+  color: var(--text-dark-primary);
+}
+
+.section-sand p {
+  color: var(--text-dark-secondary);
+}
+
+/* Dark Rich Walnut Section Styles */
+.section-dark {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  position: relative;
+}
+
+.section-wood {
+  background: linear-gradient(180deg, #1C1512 0%, #150E0C 100%);
+  color: var(--text-primary);
+  position: relative;
+}
+
+/* ==========================================================================
+   BUTTONS & INTERACTIVE ELEMENTS
+   ========================================================================== */
+
+.btn-luxury-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.95rem 2rem;
+  background: var(--gold-gradient);
+  color: #120D0B;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-luxury-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transition: left 0.6s ease;
+}
+
+@media (hover: hover) {
+  .btn-luxury-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(212, 175, 55, 0.45);
+    filter: brightness(1.05);
+  }
+  .btn-luxury-primary:hover::before {
+    left: 100%;
+  }
+}
+
+.btn-luxury-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.95rem 2rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 1px solid var(--border-gold);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+
+@media (hover: hover) {
+  .btn-luxury-outline:hover {
+    background: rgba(212, 175, 55, 0.12);
+    border-color: var(--gold-400);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+  }
+}
+
+.btn-sand-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.95rem 2rem;
+  background: var(--sand-800);
+  color: var(--sand-50);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+
+@media (hover: hover) {
+  .btn-sand-primary:hover {
+    background: #150E0C;
+    border-color: var(--gold-500);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(44, 34, 27, 0.25);
+  }
+}
+
+/* ==========================================================================
+   CARDS & LUXURY DETAILS
+   ========================================================================== */
+
+.card-luxury-dark {
+  background: linear-gradient(160deg, rgba(38, 29, 24, 0.65) 0%, rgba(22, 16, 13, 0.9) 100%);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (hover: hover) {
+  .card-luxury-dark:hover {
+    border-color: var(--border-gold);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg), 0 0 25px rgba(212, 175, 55, 0.08);
+  }
+}
+
+.card-luxury-sand {
+  background: #FFFFFF;
+  border: 1px solid rgba(44, 34, 27, 0.08);
+  border-radius: 8px;
+  box-shadow: var(--shadow-light-card);
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (hover: hover) {
+  .card-luxury-sand:hover {
+    border-color: rgba(184, 115, 51, 0.35);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(58, 40, 30, 0.12);
+  }
+}
+
+/* Gold Accent Lines */
+.gold-line-accent {
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: var(--gold-gradient);
+  margin-bottom: 1.25rem;
+}
+
+.gold-line-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Mobile Form Inputs - iOS Safari Zoom Prevention */
+@media (max-width: 768px) {
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+}
+
+/* Image Zoom Effect Container */
+.img-zoom-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
+.img-zoom-wrap img {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+@media (hover: hover) {
+  .img-zoom-wrap:hover img {
+    transform: scale(1.06);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--wood-walnut);
+  border-radius: 4px;
+  border: 2px solid var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--wood-cognac);
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
